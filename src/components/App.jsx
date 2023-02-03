@@ -1,4 +1,8 @@
-export const App = () => {
+import { Component } from "react";
+import { ContactsForm } from "components/ContactsForm/ContactsForm";
+
+export class App extends Component {
+  render() {
   return (
     <div
       style={{
@@ -10,7 +14,9 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      React homework template
+      <ContactsForm tittle='Phonebook' />
     </div>
   );
+  }
+
 };
