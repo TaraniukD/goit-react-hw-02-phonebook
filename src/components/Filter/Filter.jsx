@@ -1,12 +1,12 @@
 import React from "react";
-import { Form, Label, FormInput } from './Filter.styled'
+import { Div ,Label, FormInput } from './Filter.styled'
 
-export const Filter = () => {
+export const Filter = ({ value, onChange}) => {
     return(
-        <Form action="">
+        <Div>
             <Label htmlFor="">Find contacts by name
-                <FormInput type="text" />
+                <FormInput value={value} onChange={onChange} />
             </Label>
-        </Form>
+        </Div>
     )
 }

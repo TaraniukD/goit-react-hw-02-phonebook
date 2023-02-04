@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Form = styled.form`
+export const Div = styled.div`
 margin: 0 auto;
 width: 400px;
 border: 1px solid gray;
@@ -9,6 +9,7 @@ padding: 20px;
 box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
 `;
 export const Label = styled.label`
+
 font-size: 25px;
 `;
 

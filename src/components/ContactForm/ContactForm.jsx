@@ -1,7 +1,8 @@
 import React from "react";
 import { Formik, } from 'formik';
 import * as yup from 'yup';
-import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid';
+
 import { FormStyled, Label, Fieldtyled, Button, ErrMessage } from "./ContactForm.styled";
 // import { number } from "yup/lib/locale";
 
