@@ -1,6 +1,7 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, } from 'formik';
 import * as yup from 'yup';
+import { FormStyled, Label, Fieldtyled, Button, ErrMessage } from "./ContactsForm.styled";
 
 const schema = yup.object().shape({
     name: yup.string().required(),
@@ -29,20 +30,19 @@ export const ContactsForm = ({ tittle }) => {
             onSubmit={handleSubmit}>
         <div>
             <h1>{tittle}</h1>
-            <Form autoComplete="off"> 
-             <label htmlFor="name">Name
-             <Field
+            <FormStyled autoComplete="off"> 
+             <Label htmlFor="name">Name
+             <Fieldtyled
                 type="text"
                 name="name"
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 required
                         />
-                <ErrorMessage name='name' component='div' />        
-                </label>
-                <button type="submit">Add contact</button>
-            </Form>
-           
+                <ErrMessage name='name' component='div' />        
+                </Label>
+                <Button type="submit">Add contact</Button>
+            </FormStyled>
             </div>
             </Formik>
     )
