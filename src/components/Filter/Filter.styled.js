@@ -8,6 +8,9 @@ border-radius: 8px;
 padding: 20px;
 box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
 `;
+export const Label = styled.label`
+font-size: 25px;
+`;
 
 export const FormInput = styled.input`
 display: block;

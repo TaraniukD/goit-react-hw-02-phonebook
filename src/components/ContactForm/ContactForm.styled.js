@@ -11,8 +11,7 @@ box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 `;
 
 export const Label = styled.label`
-display: block;
-font-size: 30px;
+font-size: 25px;
 `;
 
 export const Fieldtyled = styled(Field)`

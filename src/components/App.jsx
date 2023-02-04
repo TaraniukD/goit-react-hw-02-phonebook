@@ -15,6 +15,13 @@ export class App extends Component {
     filter: '',
   }
 
+  handleSubmit = data => {
+   this.setState(({contacts}) => 
+   contacts.find(contact => contact.name === data.name)
+    ? alert(`${data.name} is already in contacts`)
+     : { contacts: [data, ...contacts]});
+  };
+
   render() {
     const { contacts, } = this.state;
 
@@ -28,7 +35,8 @@ export class App extends Component {
       }}
     >
       <h1 style={{ textAlign: 'center', margin: '20px 0px'}}>Phonebook</h1>
-      <ContactForm />
+      <ContactForm onSubmit={this.handleSubmit}/>
+      
       <h2 style={{ textAlign: 'center', margin: '20px 0px'}}>Contacts</h2>
       <Filter />
       <ContactList contacts={contacts}/>

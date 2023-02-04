@@ -1,7 +1,9 @@
 import React from "react";
 import { Formik, } from 'formik';
 import * as yup from 'yup';
+import { nanoid } from 'nanoid'
 import { FormStyled, Label, Fieldtyled, Button, ErrMessage } from "./ContactForm.styled";
+import { number } from "yup/lib/locale";
 
 const schema = yup.object().shape({
     name: yup.string().required(),
@@ -10,13 +12,17 @@ const schema = yup.object().shape({
 const initialValues = {
     name: '',
     number: '',
-
+    id: '',
 };
 
-export const ContactForm = ({onSubmit}) => {
+export const ContactForm = ({ onSubmit }) => {
     const handleSubmit = (values, {resetForm}) => {
-        
-        console.log(values);
+        const newArray = {
+            name: values.name,
+            number: values.number,
+            id: nanoid(),
+        }
+        onSubmit(newArray)
         resetForm();
     };
 

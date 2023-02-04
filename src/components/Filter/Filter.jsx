@@ -1,12 +1,12 @@
 import React from "react";
-import { Form, FormInput } from './Filter.styled'
+import { Form, Label, FormInput } from './Filter.styled'
 
 export const Filter = () => {
     return(
         <Form action="">
-            <label htmlFor="">Find contacts by name
+            <Label htmlFor="">Find contacts by name
                 <FormInput type="text" />
-            </label>
+            </Label>
         </Form>
     )
 }
