@@ -8,11 +8,14 @@ const schema = yup.object().shape({
 })
 
 const initialValues = {
-    name: ''
+    name: '',
+    number: '',
+
 };
 
-export const ContactForm = ({ tittle }) => {
+export const ContactForm = ({onSubmit}) => {
     const handleSubmit = (values, {resetForm}) => {
+        
         console.log(values);
         resetForm();
     };
@@ -40,9 +43,20 @@ export const ContactForm = ({ tittle }) => {
                         />
                 <ErrMessage name='name' component='div' />        
                 </Label>
+
+                <Label htmlFor="number">Number
+             <Fieldtyled
+                type="tel"
+                name="number"
+                pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                required
+                        />
+                <ErrMessage name='number' component='div' />        
+                </Label>
                 <Button type="submit">Add contact</Button>
             </FormStyled>
-            
+
             </Formik>
     )
 }

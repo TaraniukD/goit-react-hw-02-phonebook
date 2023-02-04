@@ -14,6 +14,7 @@ display: flex;
 align-items: center;
 gap: 8px;
 margin: 8px;
+font-size: 22px;
 `
 
 export const ListP = styled.p`
