@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, } from 'formik';
 import * as yup from 'yup';
-import { FormStyled, Label, Fieldtyled, Button, ErrMessage } from "./ContactsForm.styled";
+import { FormStyled, Label, Fieldtyled, Button, ErrMessage } from "./ContactForm.styled";
 
 const schema = yup.object().shape({
     name: yup.string().required(),
@@ -11,7 +11,7 @@ const initialValues = {
     name: ''
 };
 
-export const ContactsForm = ({ tittle }) => {
+export const ContactForm = ({ tittle }) => {
     const handleSubmit = (values, {resetForm}) => {
         console.log(values);
         resetForm();
@@ -28,8 +28,7 @@ export const ContactsForm = ({ tittle }) => {
             initialValues={initialValues}
             validationSchema={schema}
             onSubmit={handleSubmit}>
-        <div>
-            <h1>{tittle}</h1>
+
             <FormStyled autoComplete="off"> 
              <Label htmlFor="name">Name
              <Fieldtyled
@@ -43,7 +42,7 @@ export const ContactsForm = ({ tittle }) => {
                 </Label>
                 <Button type="submit">Add contact</Button>
             </FormStyled>
-            </div>
+            
             </Formik>
     )
 }

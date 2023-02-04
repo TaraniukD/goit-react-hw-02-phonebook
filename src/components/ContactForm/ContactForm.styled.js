@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
 
 export const FormStyled = styled(Form)`
+margin: 0 auto;
+width: 400px;
 border: 1px solid gray;
 border-radius: 8px;
 padding: 20px;
@@ -15,6 +17,7 @@ font-size: 30px;
 
 export const Fieldtyled = styled(Field)`
 display: block;
+min-width: 320px;
 margin-top: 20px;
 margin-bottom: 10px;
 padding: 7px;
