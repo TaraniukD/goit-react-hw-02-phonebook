@@ -24,7 +24,7 @@ export class App extends Component {
     this.setState({filter: e.currentTarget.value});
   };
   
-  FilteredContacts = () => {
+  filteredContacts = () => {
     const normalizedFilter = this.state.filter.toLowerCase();
   return (
     this.state.contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter),
@@ -33,6 +33,9 @@ export class App extends Component {
 
   render() {
     const { filter } = this.state;
+    const onHandleSubmit = this.handleSubmit;
+    const onChangeFilter = this.changeFilter;
+    const onFilteredContacts = this.filteredContacts();
 
   return (
     <div
@@ -44,13 +47,13 @@ export class App extends Component {
       }}
     >
       <h1 style={{ textAlign: 'center', margin: '20px 0px'}}>Phonebook</h1>
-      <ContactForm onSubmit={this.handleSubmit}/>
+      <ContactForm onSubmit={onHandleSubmit}/>
       
       <h2 style={{ textAlign: 'center', margin: '20px 0px'}}>Contacts</h2>
-      <Filter value={filter} onChange={this.changeFilter}/>
-      <ContactList contacts={this.FilteredContacts()}/>
+      <Filter value={filter} onChange={onChangeFilter}/>
+      <ContactList contacts={onFilteredContacts}/>
+
     </div>
   );
   }
-
 };
