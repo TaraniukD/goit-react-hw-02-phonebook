@@ -1,17 +1,17 @@
 import React from "react";
 
-import { ListLi } from "./ContactsList.styled";
+import { ListUl, ListLi, ListP } from "./ContactsList.styled";
 
 export const ContactList = ({contacts}) => {
     
     return (
-        <ul>
+        <ListUl>
             { 
             contacts.map(({id, name, number}) => {
                 return (
-                    <ListLi key={id}>{name}:<p>{number}</p></ListLi>
+                    <ListLi key={id}>{name}:<ListP>{number}</ListP></ListLi>
                 )
                 
             })}
-        </ul>
+        </ListUl>
     )}
