@@ -22,8 +22,9 @@ export const ContactForm = ({ onSubmit }) => {
             number: values.number,
             id: nanoid(),
         }
+        
         onSubmit(newArray)
-        resetForm();
+        resetForm(); 
     };
 
     // const handleSubmit = (e) => {
