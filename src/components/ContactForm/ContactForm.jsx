@@ -3,7 +3,7 @@ import { Formik, } from 'formik';
 import * as yup from 'yup';
 import { nanoid } from 'nanoid'
 import { FormStyled, Label, Fieldtyled, Button, ErrMessage } from "./ContactForm.styled";
-import { number } from "yup/lib/locale";
+// import { number } from "yup/lib/locale";
 
 const schema = yup.object().shape({
     name: yup.string().required(),
