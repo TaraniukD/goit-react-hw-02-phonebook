@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { ContactForm } from "components/ContactForm/ContactForm";
-// import { Filter } from "components/Filter/Filter";
+import { Filter } from "components/Filter/Filter";
 import { ContactList } from "components/ContactList/ContactList";
 
 export class App extends Component {
@@ -27,10 +27,10 @@ export class App extends Component {
         color: '#010101'
       }}
     >
-      <h1 style={{ textAlign: 'center'}}>Phonebook</h1>
+      <h1 style={{ textAlign: 'center', margin: '20px 0px'}}>Phonebook</h1>
       <ContactForm />
-      <h2 style={{ textAlign: 'center'}}>Contacts</h2>
-      {/* <Filter /> */}
+      <h2 style={{ textAlign: 'center', margin: '20px 0px'}}>Contacts</h2>
+      <Filter />
       <ContactList contacts={contacts}/>
     </div>
   );
