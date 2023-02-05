@@ -7,7 +7,8 @@ import PropTypes from "prop-types";
 import { FormStyled, Label, Fieldtyled, Button, ErrMessage } from "./ContactForm.styled";
 
 const schema = yup.object().shape({
-    name: yup.string().required(),
+    name: yup.string().max(15).required(),
+    number: yup.string().max(12).required(),
 })
 
 const initialValues = {
