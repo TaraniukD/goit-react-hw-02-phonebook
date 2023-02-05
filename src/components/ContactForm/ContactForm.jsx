@@ -2,9 +2,9 @@ import React from "react";
 import { Formik, } from 'formik';
 import * as yup from 'yup';
 import { nanoid } from 'nanoid';
+import PropTypes from "prop-types";
 
 import { FormStyled, Label, Fieldtyled, Button, ErrMessage } from "./ContactForm.styled";
-// import { number } from "yup/lib/locale";
 
 const schema = yup.object().shape({
     name: yup.string().required(),
@@ -28,12 +28,6 @@ export const ContactForm = ({ onSubmit }) => {
         resetForm(); 
     };
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     const inputValue = e.target.elements.name.value;
-    //     console.log(inputValue);
-    // }
-
     return (
         <Formik
             initialValues={initialValues}
@@ -46,7 +40,8 @@ export const ContactForm = ({ onSubmit }) => {
                 type="text"
                 name="name"
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                title="Name may contain only letters, apostrophe, dash and spaces.
+                For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 required
                         />
                 <ErrMessage name='name' component='div' />        
@@ -68,3 +63,7 @@ export const ContactForm = ({ onSubmit }) => {
             </Formik>
     )
 }
+
+ContactForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired
+};

@@ -3,6 +3,8 @@ import { ContactForm } from "components/ContactForm/ContactForm";
 import { Filter } from "components/Filter/Filter";
 import { ContactList } from "components/ContactList/ContactList";
 
+import { Div, H1, H2 } from "./App.styled";
+
 export class App extends Component {
 
   state = {
@@ -25,10 +27,17 @@ export class App extends Component {
   };
   
   filteredContacts = () => {
-    const normalizedFilter = this.state.filter.toLowerCase();
-  return (
-    this.state.contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter),
-    )) 
+    const { filter, contacts } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+
+  return (contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter),
+  )) 
+  };
+
+  deleteContacts = ( contactId ) => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    }));
   };
 
   render() {
@@ -36,24 +45,16 @@ export class App extends Component {
     const onHandleSubmit = this.handleSubmit;
     const onChangeFilter = this.changeFilter;
     const onFilteredContacts = this.filteredContacts();
+    const onDeleteContacts = this.deleteContacts;
 
   return (
-    <div
-      style={{
-        width: '600px',
-        margin: '30px auto',
-        fontSize: 30,
-        color: '#010101'
-      }}
-    >
-      <h1 style={{ textAlign: 'center', margin: '20px 0px'}}>Phonebook</h1>
+    <Div>
+      <H1>Phonebook</H1>
       <ContactForm onSubmit={onHandleSubmit}/>
-      
-      <h2 style={{ textAlign: 'center', margin: '20px 0px'}}>Contacts</h2>
+      <H2>Contacts</H2>
       <Filter value={filter} onChange={onChangeFilter}/>
-      <ContactList contacts={onFilteredContacts}/>
-
-    </div>
+      <ContactList contacts={onFilteredContacts} onDeleteContact={onDeleteContacts}/>
+    </Div>
   );
   }
 };
